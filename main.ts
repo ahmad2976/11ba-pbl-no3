@@ -1,0 +1,13 @@
+OLED.init(128, 64)
+basic.forever(function () {
+    OLED.clear()
+    OLED.writeString("Light:")
+    OLED.writeNum(Environment.ReadLightIntensity(AnalogPin.P1))
+    OLED.newLine()
+    OLED.writeString("Temperature°C:")
+    OLED.writeNum(Environment.octopus_BME280(Environment.BME280_state.BME280_temperature_C))
+    OLED.newLine()
+    OLED.writeString("humidity:")
+    OLED.writeNum(Environment.octopus_BME280(Environment.BME280_state.BME280_humidity))
+    basic.pause(60000)
+})
